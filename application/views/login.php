@@ -1,13 +1,12 @@
-<form method="POST" action="<?php echo base_url('login');?>">
+<?php require('header.php'); ?>
 
-	<?php //echo validation_errors(); 
-		echo form_error('email');
-	?>
+<form method="POST" action="<?php echo base_url('login') ?>">
+
+	<?php echo form_error('email'); ?>
 	<label>Email</label><br>
-	<input type="text" name="email" value="<?php echo set_value('email'); ?>"><br><br>
-	<?php 
-		echo form_error('password');
-	?>
+	<input type="text" name="email" value="<?php echo set_value('email') ?>"><br><br>
+
+	<?php echo form_error('password'); ?>
 	<label>Password</label><br>
 	<input type="password" name="password"><br><br>
 
