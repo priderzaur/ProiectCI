@@ -20,6 +20,11 @@
 
 		}
 
+		public function user{
+			$result = $this->db->get('users');
+			return $result->result_array();
+		}
+
 		public function updates(){
 
 			$this->db->limit(10);
