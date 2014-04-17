@@ -1,0 +1,80 @@
+/*
+
+	1. #0367A6 ( blue )
+	2. #148DD9
+	3. #6DBFF2
+	4. #B3DAF2
+	5. #F2F2F2 ( white )
+	6. #D6D9CD ( grey )
+
+*/
+
+body{
+	background: #F2F2F2;
+	/*font-family: Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif;*/
+}
+
+a:hover{ text-decoration: none; }
+textarea { line-height: 1.1em; padding-bottom: 5px; }
+
+.border-radius-down {
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.border-radius-all{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.timeline-header{ border:1px solid #D6D9CD; border-top:none; padding:10px; background: #fff; }
+
+	.avatar { padding:10px; margin-right: 10px; }
+		.avatar img { height: 100px; width: 100px; }
+
+.timeline-menu { padding-left:15px; padding-bottom:0px; background: #fff; border:1px solid #D6D9CD; border-top:none; }
+	.timeline-menu a { color:#148DD9; }
+	.timeline-menu ul { margin-bottom: 0px; }
+	.timeline-menu li { padding:15px 15px 15px 15px; border-right:1px solid #D6D9CD;}
+
+.profile-stats, .profile-share-form, .timeline-post, .about-div { margin-top:15px; background: #fff; border:1px solid #D6D9CD; }
+	.profile-stats h4 { padding: 0 0 10px 15px; border-bottom: 1px solid #D6D9CD; }
+	.profile-stats ul { margin-bottom: 0px; padding:13.2px 0; }
+
+.text-form { padding-top:10px; }
+
+.profile-share-form { padding:15px; }
+	/* Share form  */
+	.profile-share-form textarea { width: 100%; border:none; overflow-y: hidden; resize:none; }
+	textarea:focus { outline: none; }
+
+.timeline-post { }
+	.timeline-post-header{ padding:15px 15px 0 15px; margin-bottom: 0px; }
+		.mini-avatar { margin-right: 15px;}
+		.timeline-post-header h5 { margin-top: 6px; }
+		.timeline-post-header h6 { margin-top: -6px; }
+
+	.timeline-post-content { padding:15px 15px 15px 15px; border-bottom: 1px solid #D6D9CD; }
+
+	.timeline-post-comments { padding:7px 15px 7px 16px; background: #F2F2F2; }
+		.mini-avatar-comment { width: 32px; height: auto; margin-right: 15px;}
+		.timeline-post-comments h6 { margin-top: 0px; }
+		.timeline-post-comments textarea { width: 100%; resize:none; height: auto; min-height: 35px; }
+
+	.comment{ margin-top:-10px; }
+	.comment h5 { display: inline; }
+	.comment h6 { margin-top:-6px; }
+	.comment-avatar { padding-top:15px; margin-right: -20px; }
+
+
+.about-div { padding:15px; }
+.column-left { border-right:1px solid #D6D9CD; }
+.column-right { padding:0px 15px; }
+.column-bottom { padding-top:15px; border-top:1px solid #D6D9CD;}
+
+footer { margin:15px 0; }

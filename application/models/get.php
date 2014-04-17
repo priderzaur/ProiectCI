@@ -20,16 +20,16 @@
 
 		}
 
-		public function posts(){
+		public function updates(){
 
 			$this->db->limit(10);
-			$this->db->order_by('date','desc');
-			$result = $this->db->get('posts');
+			$this->db->order_by('dateCreated','desc');
+			$result = $this->db->get('updates');
 			return $result->result_array();
 
 		}
 
-		public function post($id){
+		public function updateWhereID($id){
 
 			$this->db->where('posts.id',$id);
 			$this->db->join('users','users.id = posts.user_id');

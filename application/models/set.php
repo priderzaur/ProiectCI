@@ -2,14 +2,36 @@
 
 Class Set extends CI_model {
 
-	public function insert_user($email,$password) {
+	public function addUser($firstName,$lastName,$email,$password,$avatar) {
 
 		$data = array(
-			'email' => $email,
-			'password' => md5($password)
+			'firstName'		=> $firstName,
+			'lastName'		=> $lastName,
+			'email'			=> $email,
+			'password'		=> md5($password),
+			'avatar'		=> $avatar
 		);
 
 		$this->db->insert('users', $data);
+		$this->db->addProfile($data);
+
+	}
+
+	public function addProfile($data, $extraInfo){
+
+
+
+	}
+
+	public function addUpdate($update){
+
+
+
+	}
+
+	public function ($value=''){
+		
+		
 
 	}
 
