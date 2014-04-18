@@ -18,7 +18,11 @@
 
 								<div class="large-info">
 
-									<h4><a href="<?php echo base_url(); ?>index.php/profile?id=<?php ?>">Pamfile Robert</a></h4>
+									<h4>
+										<a href="<?php echo base_url(); ?>index.php/profile/<?php echo $user->user_id; ?>">
+											<?php echo $user->username; ?>
+										</a>
+									</h4>
 
 									<h6>
 										<ul class="list-unstyled text-muted">
@@ -86,7 +90,7 @@
 
 											<div class="mini-avatar">
 												
-												<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/t1.0-1/c18.0.48.48/p48x48/1377992_722124137815406_2027553723_s.jpg" class="img-responsive img-rounded">
+												<img src="<?php echo $user->avatar; ?>" class="img-responsive img-rounded">
 
 											</div>
 
@@ -94,14 +98,18 @@
 
 										<div class="col-md-6 timeline-post-content">
 
-											<h5><strong><a href>Pamfile Robert</a></strong></h5>
+											<h5>
+												<strong><a href="<?php echo base_url(); ?>index.php/profile/<?php echo $user->user_id; ?>">
+													<?php echo $user->username; ?>
+												</a></strong>
+											</h5>
 
 											<h6 class="text-muted">
 												<span class="glyphicon glyphicon-calendar"></span>
-												<a href="<?php echo base_url('update/id/'.$post['update_id']); ?>"><?php echo $post['dateCreated'] ?></a>
+												<a href="<?php echo base_url(); ?>index.php/profile/<?php echo $user->user_id; ?>"><?php echo $post->dateCreated; ?></a>
 											</h6>
 
-											<p><?php echo $post['postContent']; ?></p>
+											<p><?php echo $post->postContent; ?></p>
 
 										</div>
 
