@@ -20,16 +20,12 @@
 
 		}
 
-		public function user{
-			$result = $this->db->get('users');
-			return $result->result_array();
-		}
-
 		public function updates(){
 
 			$this->db->limit(10);
 			$this->db->order_by('dateCreated','desc');
 			$result = $this->db->get('updates');
+
 			return $result->result_array();
 
 		}

@@ -18,7 +18,7 @@
 
 								<div class="large-info">
 
-									<h4><a href>Pamfile Robert</a></h4>
+									<h4><a href="<?php echo base_url(); ?>index.php/profile?id=<?php ?>">Pamfile Robert</a></h4>
 
 									<h6>
 										<ul class="list-unstyled text-muted">
