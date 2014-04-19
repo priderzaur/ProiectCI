@@ -40,6 +40,7 @@ class MY_Model extends CI_Model {
 
     	$this->db->where($this::DB_TABLE_FK1,$id);
     	$this->db->or_where($this::DB_TABLE_FK2,$id);
+    	
     	$query = $this->db->get($this::DB_TABLE);
 
     	$this->populate($query->row());

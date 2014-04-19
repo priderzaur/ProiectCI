@@ -5,6 +5,7 @@ Class Profile extends CI_Controller{
 	public function index($user_id) {
 
 		$data = array();
+
 		$this->load->model('User');
 		$user = new User();
 		$user->load($user_id);
@@ -12,11 +13,12 @@ Class Profile extends CI_Controller{
 		
 		$updates= array();
 		$this->load->model('Updates');
+		$this->db->order_by('dateCreated','desc');
 		$updatesAll = $this->Updates->get();
 
 		foreach ($updatesAll as $updateSingle) {
 
-			if ( ($updateSingle -> postedByUserID == $user_id) || ($updateSingle -> postedOnUserID == $user_id) ){
+			if ( $updateSingle -> postedByUserID == $user_id ){
 				$updates[] = $updateSingle;
 			}
 			
