@@ -1,21 +1,63 @@
 <?php 
 
-class Updates extends MY_Model {
+class Updates extends CI_Model {
 
-	const DB_TABLE = 'updates';
-    const DB_TABLE_PK = 'update_id';
-    const DB_TABLE_FK1 = 'postedByUserID';
-    const DB_TABLE_FK2 = 'postedOnUserID';
+    var $update_id          = '';
+    var $postContent        = '';
+    var $postImage          = '';
+    var $postedByUserID     = '';
+    var $postedOnUserID     = '';
+    var $dateCreated        = '';
 
-    public $postContent;
+    function __construct(){
 
-    public $postImage;
+        parent::__construct();
 
-    public $postedByUserID;
+    }
 
-    public $postedOnUserID;
+    function getAllUpdates(){
 
-    public $dateCreated;
+        $query = $this->db->get('updates');
+        return $query->result();
+
+    }
+
+    function getUpdateById($id){
+
+        $this->db->where('update_id', $id);
+        $query = $this->db->get('updates', 1);
+        return $query->result();
+
+    }
+
+    function getUpdatesByOwner($id){
+
+        $this->db->where('postedByUserID', $id);
+        $this->db->order_by('dateCreated', 'desc');
+        $query = $this->db->get('updates');
+        return $query->result();
+
+    }
+
+    function addUpdate($postContent='', $postImage='', $postedByUserID, $postedOnUserID){
+
+        $data = array(
+            'postContent'       => $postContent,
+            'postImage'         => $postImage,
+            'postedByUserID'    => $postedByUserID,
+            'postedOnUserID'    => $postedOnUserID,
+            'dateCreated'       => date('Y-m-d H:i:s', time())
+        );
+
+        $this->db->insert("updates", $data);
+    }
+
+    function deleteUpdate($id){
+
+        $this->db->delete('updates', array('update_id' => $id));
+
+    }
+
 
 }
 

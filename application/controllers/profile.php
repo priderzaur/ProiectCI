@@ -2,30 +2,27 @@
 
 Class Profile extends CI_Controller{
 
-	public function index($user_id) {
+	public function index($user_id=1) {
 
-		$data = array();
+		$user = $this->session->userdata('user');
 
-		$this->load->model('User');
-		$user = new User();
-		$user->load($user_id);
-		$data['user'] = $user;
-		
-		$updates= array();
-		$this->load->model('Updates');
-		$this->db->order_by('dateCreated','desc');
-		$updatesAll = $this->Updates->get();
+		if ($user) {
 
-		foreach ($updatesAll as $updateSingle) {
+			$this->load->model('User');
+			$data['user'] = $this->User->getUserById($user_id);
 
-			if ( $updateSingle -> postedByUserID == $user_id ){
-				$updates[] = $updateSingle;
-			}
-			
+
+			$this->load->model('Updates');
+			$data['update'] = $this->Updates->getUpdatesByOwner($user_id);
+
+			$this->load->view('profile.php',$data);
+
+		}else{
+
+			redirect(base_url().'index.php/login');
+
 		}
-		$data['updates'] = $updates;
 
-		$this->load->view('profile.php',$data);
 	}
 
 }

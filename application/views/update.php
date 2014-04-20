@@ -49,34 +49,6 @@
 
 					<div class="col-md-8 timeline border-radius-all">
 
-						<div class="timeline-menu">
-
-							<ul class="list-unstyled list-inline">
-
-								<li><a href><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
-								<li><a href ="about.html"><span class="glyphicon glyphicon-user"></span> About</a></li>
-								<li><a href><span class="glyphicon glyphicon-picture"></span> Photos</a></li>
-
-							</ul>
-
-						</div>
-
-						<div class="profile-share-form border-radius-all">
-
-							<div class="tab-content">
-
- 								<div class="tab-pane active" id="status">
-									<form method="POST" action="<?php echo base_url(); ?>index.php/new_update" role="form">
-										<textarea name="postContent" class="text-form" placeholder="What's on your mind?" rows=5></textarea>
-										<button type="submit" class="btn btn-primary">Share</button>
-										<button type="submit" class="btn btn-primary">Add photo</button>
-									</form>
-								</div>
-
-							</div>
-
-						</div>
-
 						<?php 
 						foreach ($update as $post) { ?>
 
@@ -121,7 +93,15 @@
 
 									<ul class="list-inline">
 										<li><a href>Comments</a></li>
+										<?php 
+
+										if ($user[0]->user_id == $update[0]->postedByUserID){ ?>
+
+											<li><a href="<?php echo base_url(); ?>index.php/delete_update/<?php echo $post->update_id; ?>">Delete</a></li>
 										
+										<?php
+										}
+										?>
 									</ul>
 
 								</div>

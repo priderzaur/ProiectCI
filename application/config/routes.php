@@ -41,7 +41,8 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 $route['profile/(:any)'] = "profile/profile/$1";
-
+$route['update/(:any)'] = "update/update/$1";
+$route['delete_update/(:any)'] = "delete_update/delete_update/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
