@@ -14,6 +14,7 @@ Class Profile extends CI_Controller{
 
 			$this->load->model('Updates');
 			$data['update'] = $this->Updates->getUpdatesByOwner($user_id);
+			$data['profil'] = $user;
 
 			$this->load->view('profile.php',$data);
 

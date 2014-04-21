@@ -1,5 +1,5 @@
 
-<form method="POST" action="<?php echo base_url() ?>register">
+<form method="POST" action="<?php echo base_url() ?>index.php/register">
 
 	<?php echo form_error('email'); ?>
 	<label>Name</label><br>

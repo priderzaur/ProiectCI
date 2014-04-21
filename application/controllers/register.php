@@ -24,7 +24,7 @@ Class Register extends CI_Controller {
 
 			} else {
 
-				$this->load->view('register');
+				$this->load->view('register.php');
 
 			}
 

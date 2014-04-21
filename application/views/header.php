@@ -37,9 +37,9 @@
 
 						<ul class="list-unstyled list-inline">
 								
-							<li><a href>Home</a></li>
-							<li><a href>Profile</a></li>
-							<li><a href>Settings</a></li>
+							<li><a href="<?php echo base_url(); ?>">Home</a></li>
+							<li><a href="<?php echo base_url().'index.php/settings'?>">Settings</a></li>
+							<li><a href="<?php echo base_url().'index.php/logout'?>">Logout</a></li>
 
 						</ul>
 

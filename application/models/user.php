@@ -24,7 +24,7 @@ class User extends CI_Model {
     function getUserById($id){
 
         $this->db->where('user_id', $id);
-        $query = $this->db->get('user', 1);
+        $query = $this->db->get('user');
         return $query->result();
 
     }
@@ -42,6 +42,31 @@ class User extends CI_Model {
 
     }
 
+    function updateUser($id,$email){
+        $data = array(
+            'email' => $email
+        );
+
+        $this->db->where('user_id',$id);
+        $this->db->update('user',$data);
+    }
+
+    function selectFollowers($id){
+
+        $this->db->where('follower',$id);
+        $query = $this->db->get('user_follow');
+        return $query->result();
+
+    }
+
+    function addFollower($follower,$following){
+        $data= array(
+            'follower'      => $follower,
+            'following'     => $following
+        );
+        $this->db->insert('user_follow',$data);
+    }
+
     function login($email,$password){
 
         $this->db->where('email', $email);
@@ -53,6 +78,8 @@ class User extends CI_Model {
             $result = $result->result_array();
             print_r($result);
             $user['id'] = $result[0]['user_id'];
+            $user['firstName'] = $result[0]['firstName'];
+            $user['lastName'] = $result[0]['lastName'];
             $user['email'] = $result[0]['email'];
             $this->session->set_userdata('user', $user);
             redirect(base_url());

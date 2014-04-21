@@ -13,7 +13,7 @@
 							<div class="media">
 
 								<div class="pull-left avatar">
-									<img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/1377992_722124137815406_2027553723_n.jpg"class="img-rounded img-responsive"></img>
+									<img src="<?php echo $user[0]->avatar; ?>"class="img-rounded img-responsive"></img>
 								</div>
 
 								<div class="large-info">
@@ -34,11 +34,17 @@
 
 							</div>
 
-							<div class="text-center">
-								<button type="button" class="btn btn-primary follow">
-									<span class="glyphicon glyphicon-plus"></span> Follow
-								</button>
-							</div>
+							<?php if($profil['id'] != $user[0]->user_id){ ?>
+								<div class="text-center">
+									<form method="POST" action="<?php echo base_url() ?>index.php/follow/<?php echo $user[0]->user_id; ?>">
+										<button type="submit" class="btn btn-primary follow">
+											<span class="glyphicon glyphicon-plus"></span> Follow
+										</button>
+									</form>
+								</div>
+							<?php
+							}
+							?>
 
 							<article>
 								<h3>Info</h3>
@@ -61,23 +67,26 @@
 
 						</div>
 
-						<div class="profile-share-form border-radius-all">
+						<?php if($profil['id'] == $user[0]->user_id){ ?>
 
-							<div class="tab-content">
+							<div class="profile-share-form border-radius-all">
 
- 								<div class="tab-pane active" id="status">
-									<form method="POST" action="<?php echo base_url(); ?>index.php/new_update" role="form">
-										<textarea name="postContent" class="text-form" placeholder="What's on your mind?" rows=5></textarea>
-										<button type="submit" class="btn btn-primary">Share</button>
-										<button type="submit" class="btn btn-primary">Add photo</button>
-									</form>
+								<div class="tab-content">
+
+	 								<div class="tab-pane active" id="status">
+										<form method="POST" action="<?php echo base_url(); ?>index.php/new_update" role="form">
+											<textarea name="postContent" class="text-form" placeholder="What's on your mind?" rows=5></textarea>
+											<button type="submit" class="btn btn-primary">Share</button>
+											<button type="submit" class="btn btn-primary">Add photo</button>
+										</form>
+									</div>
+
 								</div>
 
 							</div>
 
-						</div>
-
 						<?php 
+						}
 						foreach ($update as $post) { ?>
 
 							<div class="timeline-post border-radius-all">
