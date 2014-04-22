@@ -29,6 +29,12 @@ header{
 	padding-top:12px;
 }
 
+.logo{
+	margin-left:25px;
+	padding-top:3px;
+	width: 50%;
+}
+
 .top-menu ul li{ padding-top:7px; padding-right:10px; }
 	.top-menu a{ color:#fff; }
 	.top-menu a:hover { text-decoration: none; color:#B3DAF2; }

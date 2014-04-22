@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-Class Delete_update extends CI_Controller{
+Class Delete_comment extends CI_Controller{
 
 	public function index($id=0){
 
@@ -9,8 +9,9 @@ Class Delete_update extends CI_Controller{
 		if ($user) {
 
 			$this->load->model('Updates');
+			$comment = $this->Updates->getCommentById($id);
 			$this->Updates->deleteComment($id);
-			redirect(base_url().'index.php/update/'.$user['id']);
+			redirect(site_url().'/update/'.$comment[0]->postedOn);
 		
 		} else {
 

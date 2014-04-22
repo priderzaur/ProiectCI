@@ -77,6 +77,14 @@ class Updates extends CI_Model {
 
     }
 
+    function getCommentById($id){
+
+        $this->db->where('comment_id',$id);
+        $query = $this->db->get('comments');
+        return $query->result();
+
+    }
+
     function getCommentsByPost($update_id){
 
         $this->db->where('postedOn',$update_id);

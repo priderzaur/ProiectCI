@@ -23,7 +23,7 @@
 
 					<div class="col-md-2">
 
-						Logo
+						<a href="<?php echo site_url(); ?>"><img src="<?php echo base_url(); ?>assets/logo.png" class="image-responsive logo"></a>
 
 					</div>
 

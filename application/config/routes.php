@@ -40,7 +40,10 @@
 
 $route['default_controller'] = "home";
 $route['404_override'] = '';
+$route['delete_update/(:any)'] = "delete_update/delete_update/$1";
+$route['delete_comment/(:any)'] = "delete_comment/delete_comment/$1";
 $route['add_comment/(:any)'] = "add_comment/add_comment/$1";
+
 $route['follow/(:any)'] = "follow/follow/$1";
 $route['profile/(:any)'] = "profile/profile/$1";
 $route['update/(:any)'] = "update/update/$1";

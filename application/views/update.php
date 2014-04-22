@@ -128,7 +128,7 @@
 													if( $profil['id'] == $comment->user_id ): ?>
 
 														<p class="pull-right remove-comment">
-															<a href>
+															<a href="<?php echo base_url().'index.php/delete_comment/'.$comment->comment_id; ?>">
 																<span class="glyphicon glyphicon-remove">
 															</a>
 														</p>
