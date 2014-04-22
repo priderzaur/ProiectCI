@@ -13,7 +13,7 @@
 							<div class="media">
 
 								<div class="pull-left avatar">
-									<img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/1377992_722124137815406_2027553723_n.jpg"class="img-rounded img-responsive"></img>
+									<img src="<?php echo $user[0]->avatar; ?>"class="img-rounded img-responsive"></img>
 								</div>
 
 								<div class="large-info">
@@ -93,9 +93,8 @@
 
 									<ul class="list-inline">
 										<li><a href>Comments</a></li>
-										<?php 
 
-										if ($user[0]->user_id == $update[0]->postedByUserID){ ?>
+										<?php if($profil['id'] == $user[0]->user_id){ ?>
 
 											<li><a href="<?php echo base_url(); ?>index.php/delete_update/<?php echo $post->update_id; ?>">Delete</a></li>
 										
@@ -103,6 +102,78 @@
 										}
 										?>
 									</ul>
+
+
+									<?php 
+
+									foreach($comments as $comment){ ?>
+
+										<div class="row comment">
+
+											<div class="col-md-1 comment-avatar">
+												<div class="mini-avatar-comment">
+													<img src="<?php echo $comment->avatar; ?>" class="img-responsive">
+												</div>
+											</div>
+
+											<div class="col-md-11">
+												<h5>
+													<a href="<?php echo base_url().'index.php/profile/'.$comment->user_id; ?>">
+														<?php echo $comment->firstName.' '.$comment->lastName; ?>
+													</a>
+													<small><?php echo $comment->date; ?></small>
+
+													<?php 
+
+													if( $profil['id'] == $comment->user_id ): ?>
+
+														<p class="pull-right remove-comment">
+															<a href>
+																<span class="glyphicon glyphicon-remove">
+															</a>
+														</p>
+
+													<?php
+
+													endif;
+
+													?>
+												</h5>
+												
+
+												<?php 
+
+													echo $comment->content;
+
+												?>
+
+											</div>
+
+										</div>
+
+									<?php
+
+									}
+
+									?>
+
+									<div class="row comment-form">
+
+		 									<div class="col-md-1 comment-avatar">
+												<div class="mini-avatar-comment">
+													<img src="<?php echo $profil['avatar']; ?>" class="img-responsive">
+												</div>
+											</div>
+
+											<div class="col-md-11">
+
+												<form method="POST" action="<?php echo base_url().'index.php/add_comment/'.$post->update_id; ?>" role="form">
+													<textarea name="comment" class="text-form" placeholder="Write a comment..."></textarea>
+													<button type="submit" class="btn btn-primary">Add Comment</button>
+												</form>
+											</div>
+
+									</div>
 
 								</div>
 

@@ -58,6 +58,34 @@ class Updates extends CI_Model {
 
     }
 
+    function addComment($user_id,$update_id,$content){
+
+        $data = array(
+            'postedBy'      => $user_id,
+            'postedOn'      => $update_id,
+            'content'       => $content,
+            'date'          => date('Y-m-d H:i:s', time())
+        );
+
+        $this->db->insert('comments', $data);
+
+    }
+
+    function deleteComment($id){
+
+        $this->db->delete('comments', array('comment_id' => $id));
+
+    }
+
+    function getCommentsByPost($update_id){
+
+        $this->db->where('postedOn',$update_id);
+        $this->db->order_by('date','asc');
+        $query = $this->db->get('comments');
+        return $query->result();
+
+    }
+
 
 }
 
