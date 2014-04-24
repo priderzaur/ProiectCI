@@ -9,6 +9,7 @@ Class Home extends CI_Controller {
 		if ($user) {
 			$data = array();
 
+			$data['profil'] = $user;
 			$this->load->model('User');
 			$this->load->model('Updates');
 			$followers = $this->User->SelectFollowers($user['id']);

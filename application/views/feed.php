@@ -10,6 +10,34 @@
 
 					<div class="col-md-4">
 
+						<div class="mini-profile">
+
+							<div class="pull-left">
+								<img src="<?php echo $profil['avatar']; ?>" class="mini-feed-avatar ">
+							</div>
+							<h5>
+								<strong><a href="<?php echo site_url().'/profile/'.$profil['id']; ?>">
+									<?php echo $profil['firstName'].' '.$profil['lastName']; ?>
+								</a></strong>
+							</h5>
+							<h6><a href="<?php echo site_url().'/about/'.$profil['id']; ?>">Edit profile</a></h6>
+
+						</div>
+
+						<ul class="list-unstyled feed-menu">
+
+							<li>
+								<span class="glyphicon glyphicon-bullhorn"></span> <a href="<?php echo site_url(); ?>">News Feed</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-comment"></span> <a href="<?php echo site_url().'/messages'; ?>">Messages</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-search"></span> <a href="<?php echo site_url().'/search' ?>">Search for people</a>
+							</li>
+
+						</ul>
+
 					</div>
 
 					<div class="col-md-8 timeline border-radius-all">

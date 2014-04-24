@@ -34,11 +34,15 @@
 
 							</div>
 
+							<?php if($profil['id'] != $user[0]->user_id){ ?>
+
 							<div class="text-center">
 								<button type="button" class="btn btn-primary follow">
 									<span class="glyphicon glyphicon-plus"></span> Follow
 								</button>
 							</div>
+
+							<?php } ?>
 
 							<article>
 								<h3>Info</h3>

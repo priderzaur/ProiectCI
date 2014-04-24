@@ -66,81 +66,87 @@
 
 						</div>
 
-						<?php if($profil['id'] == $user[0]->user_id){ ?>
+						<div class="about-div">
 
-							<div class="profile-share-form border-radius-all">
-
-								<div class="tab-content">
-
-	 								<div class="tab-pane active" id="status">
-										<form method="POST" action="<?php echo base_url(); ?>index.php/new_update" role="form">
-											<textarea name="postContent" class="text-form" placeholder="What's on your mind?" rows=5></textarea>
-											<button type="submit" class="btn btn-primary">Share</button>
-											<button type="submit" class="btn btn-primary">Add photo</button>
-										</form>
-									</div>
-
-								</div>
-
+							<div class="col-md-12">
+								<a class="pull-right" href="<?php echo site_url().'/change' ?>">Edit profile</a>
 							</div>
 
-						<?php 
-						}
-						foreach ($update as $post) { ?>
+							<div class="row">
 
-							<div class="timeline-post border-radius-all">
+								<div class="col-md-6 column-left">
 
-								<div class="container">
+									<?php if ( $infos[0]->work): ?>
 
-									<div class="row">
+										<h4>Work &amp; Education</h4>
+										<strong><?php echo $infos[0]->work; ?></strong>
 
-										<div class="col-md-1 timeline-post-header">
-
-											<div class="mini-avatar">
-												
-												<img src="<?php echo $user[0]->avatar; ?>" class="img-responsive img-rounded">
-
-											</div>
-
-										</div>
-
-										<div class="col-md-6 timeline-post-content">
-
-											<h5>
-												<strong><a href="<?php echo base_url(); ?>index.php/profile/<?php echo $user[0]->user_id; ?>">
-													<?php echo $user[0]->firstName.' '.$user[0]->lastName; ?>
-												</a></strong>
-											</h5>
-
-											<h6 class="text-muted">
-												<span class="glyphicon glyphicon-calendar"></span>
-												<a href="<?php echo base_url(); ?>index.php/update/<?php echo $post->update_id; ?>"><?php echo $post->dateCreated; ?></a>
-											</h6>
-
-											<p><?php echo $post->postContent; ?></p>
-
-										</div>
-
-									</div>
-
-								</div>
-
-								<div class="timeline-post-comments">
-
-									<ul class="list-inline">
-										<li><a href>Comments</a></li>
+										<?php if ( $infos[0]->work_position ): ?>
 										
-									</ul>
+											<p><?php echo $infos[0]->work_position; ?>  
+												<small class="text-muted">
+													<?php echo '('.$infos[0]->work_start.' to '.$infos[0]->work_end.')'; ?>
+												</small>
+											</p>
+										
+										<?php endif; ?>
+
+									<?php endif; ?>
+
+									<?php if ( $infos[0]->school ): ?>
+										<p>
+											<strong><?php echo $infos[0]->school; ?></strong>
+											<small class="text-muted">
+												<?php echo '('.$infos[0]->school_start.' to '.$infos[0]->school_end.')'; ?>
+											</small>
+										</p>
+									<?php endif; ?>
+
+									<?php if ( $infos[0]->relationship ): ?>
+										<h4 class="column-bottom">Relationship</h4>
+										<p><?php echo $infos[0]->relationship; ?></p>
+									<?php endif; ?>
+
+								</div>
+
+								<div class="col-md-6">
+									
+									<div class="row column-right">
+
+										<h4>Basic Information</h4>
+										<div class="col-md-5">
+											<p class="text-muted">Hometown</p>
+											<p class="text-muted">Current City</p>
+											<p class="text-muted">Birthday</p>
+										</div>
+
+										<div class="col-md-7">
+											<p><?php echo $infos[0]->hometown; ?></p>
+											<p><?php echo $infos[0]->current_location; ?></p>
+											<p><?php echo $infos[0]->birthday; ?></p>
+										</div>
+
+									</div>
+
+									<div class="row column-right">
+
+										<h4 class="column-bottom">Contact</h4>
+										<div class="col-md-5">
+											<p class="text-muted">Email</p>
+										</div>
+
+										<div class="col-md-7">
+											<p><?php echo $infos[0]->email; ?></p>
+										</div>
+
+									</div>
 
 								</div>
 
 							</div>
-
-						<?php
-						}
-						?>
+						</div>
+						
 					</div>
-
 
 				</div>
 

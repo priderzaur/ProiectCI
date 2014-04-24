@@ -44,7 +44,8 @@ class User extends CI_Model {
 
     function updateUser($id,$email){
         $data = array(
-            'email' => $email
+            'email' => $email,
+            'password' => md5($pwd)
         );
 
         $this->db->where('user_id',$id);
@@ -66,6 +67,23 @@ class User extends CI_Model {
         );
         $this->db->insert('user_follow',$data);
     }
+
+    function getMoreInfoById($id){
+
+        $this->db->where('user_id',$id);
+        $query = $this->db->get('profil');
+        return $query->result();
+
+    }
+
+    function updateMoreInfo($id,$data=array()){
+
+        $this->db->where('user_id',$id);
+        $this->db->update('profil',$data);
+
+    }
+
+
 
     function login($email,$password){
 

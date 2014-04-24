@@ -64,6 +64,7 @@ header{
 	.follow{ margin-top:5px; padding:10px 30px; width: 100%; }
 
 .timeline { background: #fff; border:1px solid #D6D9CD; padding:0; }
+.timeline-setings { padding:15px; }
 
 .timeline-menu { padding-left:15px; padding-bottom:0px; border-bottom:1px solid #D6D9CD; }
 	.timeline-menu a { color:#148DD9; }
@@ -109,3 +110,14 @@ header{
 .column-bottom { padding-top:15px; border-top:1px solid #D6D9CD;}
 
 footer { margin:15px 0; }
+
+
+.mini-profile { margin-bottom: 25px; }
+	.mini-profile h5{ padding-top:7px; }
+	.mini-profile h6{ margin-top:-5px; }
+.mini-feed-avatar{ width: 50px; margin-right: 15px; }
+
+.feed-menu li{ padding-bottom: 4px; }
+.feed-menu a{ padding-left:5px; color:#000;}
+
+.grupare{ display:inline;}

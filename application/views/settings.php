@@ -6,16 +6,20 @@
 
 			<div class="row">
 
-				<div class="timeline border-radius-all">
+				<div class="timeline timeline-setings border-radius-all">
 
 					<form method="POST" action="<?php echo base_url() ?>index.php/settings">
 
 						<?php echo form_error('email'); ?>
-						<label>Email</label><br>
-						<input type="text" name="email" value="<?php echo set_value('email') ?>"><br><br>
+						<label>Change email</label><br>
+						<input type="text" name="email" value="<?php echo $user[0]->email; ?>"><br><br>
+
+						<?php echo form_error('newpwd'); ?>
+						<label>Change password</label><br>
+						<input type="password" name="newpwd" placeholder="Enter a new password"><br><br>
 
 						<label>Enter password</label><br>
-						<input type="password" name="confirmpwd" value="<?php echo set_value('email') ?>">
+						<input type="password" name="confirmpwd" placeholder="Enter the password">
 						<br><br>
 
 						<input type="submit">

@@ -8,18 +8,26 @@ Class Settings extends CI_Controller{
 		if ($user) {
 
 			$this->form_validation->set_rules('email', 'Email', 'valid_email');
+			$this->load->model('User');
+
+			$data=array();
+			$data['profil']=$user;
+			$data['user']=$this->User->getUserById($user['id']);
 
 			if ($this->form_validation->run()) {
-				$this->load->model('User');
+
 
 				if ($this->input->post('confirmPwd') == $user['password']){
 
-					$this->User->updateUser($user['id'],$this->input->post('email'));
+					if($this->input->post('newpwd') !='') { $pwd = $this->input->post('newpwd'); }
+
+					$this->User->updateUser($user['id'],$this->input->post('email'),$pwd);
 					redirect(base_url());
 				}
 
 			}else {
-				$this->load->view('settings.php');
+
+				$this->load->view('settings.php',$data);
 			}
 
 		}else{

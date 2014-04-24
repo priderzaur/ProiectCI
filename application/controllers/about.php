@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-Class Profile extends CI_Controller{
+Class About extends CI_Controller{
 
 	public function index($user_id=1) {
 
@@ -12,11 +12,9 @@ Class Profile extends CI_Controller{
 			$data['user'] = $this->User->getUserById($user_id);
 			$data['infos'] = $this->User->getMoreInfoById($user_id);
 
-			$this->load->model('Updates');
-			$data['update'] = $this->Updates->getUpdatesByOwner($user_id);
 			$data['profil'] = $user;
 
-			$this->load->view('profile.php',$data);
+			$this->load->view('about.php',$data);
 
 		}else{
 
