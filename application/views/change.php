@@ -12,28 +12,31 @@
 
 						<?php echo form_error('email'); ?>
 						<h4>Work</h4>
-						<h6>Add your workplace</h6>
-						<div class="grupare">
-							<input type="text" class="form-control" name="work" value="<?php echo $info[0]->work; ?>">
-							<input type="text" class="form-control" name="work_position" value="<?php echo $info[0]->work_position; ?>" placeholder="Your position">
-							<input type="text" class="form-control" name="work_start" value="<?php echo $info[0]->work_start; ?>" placeholder="Started">
-							<input type="text" class="form-control" name="work_end" value="<?php echo $info[0]->work_end; ?>" placeholder="End">
-						</div>
-					
+						<input type="text" class="form-control" name="work" value="<?php echo $info[0]->work; ?>"><br>
+						<input type="text" class="form-control" name="work_position" value="<?php echo $info[0]->work_position; ?>" placeholder="Your position"><br>
+						<input type="text" class="form-control" name="work_start" value="<?php echo $info[0]->work_start; ?>" placeholder="Started"><br>
+						<input type="text" class="form-control" name="work_end" value="<?php echo $info[0]->work_end; ?>" placeholder="End"><br>
 
-						<input type="text" class="form-control" name="school" value="<?php echo $info[0]->school; ?>">
-						<input type="text" class="form-control" name="school_start" value="<?php echo $info[0]->school_start; ?>" placeholder="Started">
-						<input type="text" class="form-control" name="school_end" value="<?php echo $info[0]->school_end; ?>" placeholder="End">
+						<h4>Education</h4>
+						<input type="text" class="form-control" name="school" value="<?php echo $info[0]->school; ?>"><br>
+						<input type="text" class="form-control" name="school_start" value="<?php echo $info[0]->school_start; ?>" placeholder="Started"><br>
+						<input type="text" class="form-control" name="school_end" value="<?php echo $info[0]->school_end; ?>" placeholder="End"><br>
 
-						<input type="text" class="form-control" name="birthday" value="<?php echo $info[0]->birthday; ?>" placeholder="End">
 
-						<input type="text" class="form-control" name="hometown" value="<?php echo $info[0]->hometown; ?>" placeholder="End">
+						<h4>Birthday</h4>
+						<input type="text" class="form-control" name="birthday" value="<?php echo $info[0]->birthday; ?>" placeholder="End"><br>
 
-						<input type="text" class="form-control" name="current_location" value="<?php echo $info[0]->current_location; ?>" placeholder="End">
+						<h4>Hometown</h4>
+						<input type="text" class="form-control" name="hometown" value="<?php echo $info[0]->hometown; ?>" placeholder="End"><br>
 
-						<input type="text" class="form-control" name="email" value="<?php echo $info[0]->email; ?>" placeholder="End">
+						<h4>Current Location</h4>
+						<input type="text" class="form-control" name="current_location" value="<?php echo $info[0]->current_location; ?>" placeholder="End"><br>
 
-						<input type="text" class="form-control" name="relationship" value="<?php echo $info[0]->relationship; ?>" placeholder="End">
+						<h4>Email</h4>
+						<input type="text" class="form-control" name="email" value="<?php echo $info[0]->email; ?>" placeholder="End"><br>
+
+						<h4>Relationship</h4>
+						<input type="text" class="form-control" name="relationship" value="<?php echo $info[0]->relationship; ?>" placeholder="End"><br>
 
 
 						<input type="submit">

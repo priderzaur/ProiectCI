@@ -38,17 +38,41 @@
 
 							</div>
 
-							<?php if($profil['id'] != $user[0]->user_id){ ?>
-								<div class="text-center">
-									<form method="POST" action="<?php echo base_url() ?>index.php/follow/<?php echo $user[0]->user_id; ?>">
-										<button type="submit" class="btn btn-primary follow">
-											<span class="glyphicon glyphicon-plus"></span> Follow
-										</button>
-									</form>
-								</div>
-							<?php
-							}
+							<?php if($profil['id'] != $user[0]->user_id): ?>
+
+								<?php if( empty($follow) ): ?>
+
+									<div class="text-center">
+										<form method="POST" action="<?php echo base_url() ?>index.php/follow/<?php echo $user[0]->user_id; ?>">
+											<button type="submit" class="btn btn-primary follow">
+												<span class="glyphicon glyphicon-plus"></span> Follow
+											</button>
+										</form>
+									</div>
+
+							<?php else: ?>
+
+									<div class="text-center">
+										<form method="POST" action="<?php echo base_url() ?>index.php/unfollow/<?php echo $user[0]->user_id; ?>">
+											<button type="submit" class="btn btn-danger follow">
+												<span class="glyphicon glyphicon-plus"></span> Unfollow
+											</button>
+										</form>
+									</div>
+
+							<?php 
+								endif;
+							endif;
 							?>
+
+
+							<ul class="list-unstyled feed-menu">
+
+								<li>
+									<span class="glyphicon glyphicon-comment"></span> <a href="<?php echo site_url().'/messages/conversation/'.$user[0]->user_id; ?>">Send a message</a>
+								</li>
+
+							</ul>
 
 					</div>
 
@@ -68,17 +92,29 @@
 
 						<?php if($profil['id'] == $user[0]->user_id){ ?>
 
-							<div class="profile-share-form border-radius-all">
+							<div class="profile-share-form border-radius-all tab_wrap">
 
-								<div class="tab-content">
+								<ul class="tabs">
+							      <li><a name="tab" id="tab_1" href="javascript:void(0)" onClick="tabs(1)" class="active">Status</a></li>
+							      <li><a name="tab" id="tab_2" href="javascript:void(0)" onClick="tabs(2)">Photo</a></li>
+							    </ul>
 
-	 								<div class="tab-pane active" id="status">
-										<form method="POST" action="<?php echo base_url(); ?>index.php/new_update" role="form">
-											<textarea name="postContent" class="text-form" placeholder="What's on your mind?" rows=5></textarea>
-											<button type="submit" class="btn btn-primary">Share</button>
-											<button type="submit" class="btn btn-primary">Add photo</button>
-										</form>
-									</div>
+ 								<div name="tab_content" id="tab_content_1" class="tab_content active">
+
+									<form method="POST" action="<?php echo base_url(); ?>index.php/new_update" enctype="multipart/form-data">
+										<textarea name="postContent" class="text-form" placeholder="What's on your mind?" rows=5></textarea>
+										<button type="submit" class="btn btn-primary">Share</button>
+									</form>
+
+								</div>
+
+ 								<div name="tab_content" id="tab_content_2" class="tab_content">
+
+									<form method="POST" action="<?php echo base_url(); ?>index.php/new_update_photo" enctype="multipart/form-data">
+										<textarea name="postContent" class="text-form" placeholder="What's on your mind?" rows=5></textarea>
+										<button type="submit" class="btn btn-primary">Share</button>
+										<input type="file" name="userfile" class="btn btn-primary">Add photo
+									</form>
 
 								</div>
 
@@ -117,7 +153,23 @@
 												<a href="<?php echo base_url(); ?>index.php/update/<?php echo $post->update_id; ?>"><?php echo $post->dateCreated; ?></a>
 											</h6>
 
-											<p><?php echo $post->postContent; ?></p>
+											<p>
+
+												<?php 
+													echo $post->postContent;
+													if ($post->postImage != ''):?>
+
+														<div class="text-center">
+															<img src="<?php echo base_url().'uploads/'.$post->postImage; ?>" class="image-post">
+														</div>
+
+													<?php
+													endif;
+
+												 ?>
+
+
+											</p>
 
 										</div>
 
@@ -150,5 +202,7 @@
 
 	</div>
 
+
+
+
 <?php require ('footer.php'); ?>
-	

@@ -58,6 +58,22 @@ class Updates extends CI_Model {
 
     }
 
+    function getFeed($id){
+
+        $this->db->select("*");
+        $this->db->from('updates');
+        $this->db->where('follower', $id);
+        $this->db->join('user_follow', 'user_follow.following = updates.postedByUserID', 'right');
+        $this->db->order_by('update_id','DESC');
+
+        $query = $this->db->get();
+
+        return $query->result();
+
+    }
+
+
+
     function addComment($user_id,$update_id,$content){
 
         $data = array(

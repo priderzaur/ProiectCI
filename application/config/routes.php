@@ -46,8 +46,15 @@ $route['add_comment/(:any)'] = "add_comment/add_comment/$1";
 
 $route['about/(:any)'] = "about/about/$1";
 $route['follow/(:any)'] = "follow/follow/$1";
+$route['unfollow/(:any)'] = "unfollow/unfollow/$1";
 $route['profile/(:any)'] = "profile/profile/$1";
 $route['update/(:any)'] = "update/update/$1";
+
+$route['messages/send'] 				= "messages/send";
+$route['messages/conversation/(:num)'] 	= "messages/conversation/$1";
+$route['messages/add/(:num)'] 			= "messages/add/$1";
+$route['messages/(:any)'] 				= "messages/messages";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

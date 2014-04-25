@@ -68,9 +68,12 @@
 
 						<div class="about-div">
 
-							<div class="col-md-12">
-								<a class="pull-right" href="<?php echo site_url().'/change' ?>">Edit profile</a>
-							</div>
+							<?php if($profil['id'] == $user[0]->user_id): ?>
+
+								<div class="col-md-12">
+									<a class="pull-right" href="<?php echo site_url().'/change' ?>">Edit profile</a>
+								</div>
+							<?php endif; ?>
 
 							<div class="row">
 

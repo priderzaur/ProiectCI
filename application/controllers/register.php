@@ -20,7 +20,12 @@ Class Register extends CI_Controller {
 					$this->input->post('email'), 
 					$this->input->post('password')
 				);
+				
 				$this->User->login($this->input->post('email'), $this->input->post('password'));
+				$user = $this->session->userdata('user');
+				$this->User->addMoreInfo($user['id'],$user['email']);
+
+				redirect(base_url());
 
 			} else {
 

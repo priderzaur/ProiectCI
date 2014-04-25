@@ -29,6 +29,18 @@ class User extends CI_Model {
 
     }
 
+    function getUsers($id){
+
+        $this->db->select("*");
+        $this->db->from('user');
+        $this->db->where('follower',$id);
+        $this->db->join('user_follow','user_follow.following = user.user_id');
+        $query = $this->db->get();
+
+        return $query->result();
+
+    }
+
     function addUser($firstName,$lastName,$email,$password){
 
         $data = array(
@@ -52,6 +64,17 @@ class User extends CI_Model {
         $this->db->update('user',$data);
     }
 
+
+    function selectFollower($follower,$following){
+
+        $this->db->where('follower',$follower);
+        $this->db->where('following',$following);
+        $query = $this->db->get('user_follow');
+        return $query->result();
+
+
+    }
+
     function selectFollowers($id){
 
         $this->db->where('follower',$id);
@@ -66,6 +89,33 @@ class User extends CI_Model {
             'following'     => $following
         );
         $this->db->insert('user_follow',$data);
+    }
+    
+    function deleteFollower($follower,$following){
+        $data= array(
+            'follower'      => $follower,
+            'following'     => $following
+        );
+        $this->db->delete('user_follow',$data);
+    }
+
+    function addMoreInfo($id,$email){
+        $data= array(
+            'user_id'           => $id,
+            'work'              => 'not set',
+            'work_position'     => 'not set',
+            'work_start'        => 'not set',
+            'work_end'          => 'not set',
+            'school'            => 'not set',
+            'school_start'      => 'not set',
+            'school_end'        => 'not set',
+            'birthday'          => 'not set',
+            'hometown'          => 'not set',
+            'current_location'  => 'not set',
+            'email'             => $email,
+            'relationship'      => 'not set'
+        );
+        $this->db->insert('profil',$data);
     }
 
     function getMoreInfoById($id){
@@ -101,7 +151,7 @@ class User extends CI_Model {
             $user['email']      = $result[0]['email'];
             $user['avatar']     = $result[0]['avatar'];
             $this->session->set_userdata('user', $user);
-            redirect(base_url());
+            redirect(site_url());
         }
 
     }

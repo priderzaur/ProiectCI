@@ -12,12 +12,9 @@ Class Home extends CI_Controller {
 			$data['profil'] = $user;
 			$this->load->model('User');
 			$this->load->model('Updates');
-			$followers = $this->User->SelectFollowers($user['id']);
 
-			foreach($followers as $follower){
-				$data['feeds'][] = $this->Updates->getUpdatesByOwner($follower->following);
-				$data['users'][] = $this->User->getUserById($follower->following);
-			}
+			$data['feeds'] = $this->Updates->getFeed($user['id']);
+			$data['users'] = $this->User->getUsers($user['id']);
 
 			$this->load->view('feed.php',$data);
 
@@ -26,6 +23,7 @@ Class Home extends CI_Controller {
 		}
 		
 	}
+
 
 }
 

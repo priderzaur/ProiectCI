@@ -11,6 +11,7 @@ Class Profile extends CI_Controller{
 			$this->load->model('User');
 			$data['user'] = $this->User->getUserById($user_id);
 			$data['infos'] = $this->User->getMoreInfoById($user_id);
+			$data['follow'] = $this->User->selectFollower($user['id'],$user_id);
 
 			$this->load->model('Updates');
 			$data['update'] = $this->Updates->getUpdatesByOwner($user_id);
