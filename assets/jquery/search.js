@@ -23,7 +23,7 @@ $(function(){
         cache: false,
         success: function(html)
         {
-           // alert("success");
+            alert("success");
             $("#result").html(html).show();
         }
         });

@@ -13,9 +13,41 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
+	<script type="text/javascript">
+        function ajaxSearch() {
+            var input_data = $('#search_data').val();
+            if (input_data.length === 0) {
+                $('#suggestions').hide();
+            } else {
+
+                var post_data = {
+                    'search_data': input_data,
+                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url(); ?>/search",
+                    data: post_data,
+                    success: function(data) {
+                        // return success
+                        if (data.length > 0) {
+                            $('#suggestions').show();
+                            $('#autoSuggestionsList').addClass('auto_list');
+                            $('#autoSuggestionsList').html(data);
+                        }
+                    }
+                });
+
+            }
+        }
+	</script>
+
+
 </head>
 
 <header>
+
 	<div class="container">
 
 		<div class="row">
@@ -33,56 +65,13 @@
 					<div class="col-md-7">
 
 						<form class="form_search">
-							<input type="text" class="search" id="searchid" placeholder="Search for people ">
+							<input name="search_data" id="search_data" type="text" onkeyup="ajaxSearch();" class="search form-control" placeholder="Search for people ">
 						</form>
 
-						<div id="result">
-
-							<?php 
-								//print_r(incarca_useri());
-
-									//echo 'postid' . $_POST['search'];
-
-								//$postData=$this->input->post('search');
-
-								//var_dump($postData); exit;
-
-
-								echo $_POST['search'];
-								    if(isset($_POST['search']))
-
-										{
-									
-									//$q=$_POST['search'];
-									$q='ra';
-
-									$link = mysqli_connect("localhost", "root", "", "codeigniter2");
-								    $q = mysqli_real_escape_string($link, $q);
-								    $strSQL_Result = mysqli_query($link, "select user_id,firstName,lastName,email,avatar from user where firstName like '%$q%' or lastName like '%$q%' or email like '%$q%' order by user_id LIMIT 5");
-								    //print_r($strSQL_Result);
-								    while($row=mysqli_fetch_array($strSQL_Result))
-								    {
-								        $fn   = $row['firstName'];
-								        $ln = $row['lastName'];
-								        $email      = $row['email'];
-								        $b_fn = '<strong>'.$q.'</strong>';
-								        $b_ln = '<strong>'.$q.'</strong>';
-								        $b_email    = '<strong>'.$q.'</strong>';
-								        $final_fn = str_ireplace($q, $b_fn, $fn);
-								        $final_ln = str_ireplace($q, $b_ln, $ln);
-								        $final_email = str_ireplace($q, $b_email, $email);
-								        $avatar = $row['avatar'];
-								        ?>
-								            <div class="show" align="left">
-								                <img src="<?php echo $avatar ?>" /><span class="name">
-								                <?php echo $final_fn . " " . $final_ln ?></span>&nbsp;<br/><?php echo $final_email; ?><br/>
-								            </div>
-								        <?php
-								    }
-								}
-											
-								?>
-
+						 <div id="suggestions" class="result">
+				            <div id="autoSuggestionsList">  
+				            </div>
+				        </div>
 					</div>
 
 					<div class="col-md-3 top-menu pull-right">

@@ -217,22 +217,13 @@ footer { margin:15px 0; }
     color:#AAAAAA;
 }
 
-#searchid
-    {
-        width:652px;
-        height: 35px;
-        border:solid 1px #000;
-        background-color: white;
-        border-radius: 4px;
-        padding:10px;
-        font-size:14px;
-    }
 
-#result
+.result
     {
         position:absolute;
+        top:32px;
         width:652px;
-        padding:10px;
+        padding:10px 0;
         display:none;
         margin-top:1px;
         border-top:0px;
@@ -242,16 +233,17 @@ footer { margin:15px 0; }
         border-radius: 4px;
 	}
 
-	.show
-    {
-        padding:10px;
-        border-bottom:1px #999 dashed;
-        font-size:15px;
-        height:180px;
-    }
-    .show:hover
-    {
-        background:#4c66a4;
-        color:#FFF;
-        cursor:pointer;
-    }
+.result li{ padding:10px; }
+.result li:hover{ background: #D6D9CD; }
+
+
+
+
+.avatar-search{
+    position: relative;
+  min-height: 1px;
+  padding-right: 7px;
+  padding-left: 15px;
+  float: left;
+  width: 10.66666667%;
+}

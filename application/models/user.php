@@ -156,6 +156,13 @@ class User extends CI_Model {
 
     }
 
+    public function get_autocomplete($search_data) {
+        $this->db->select('*');
+        $this->db->like('firstName', $search_data);
+        $this->db->or_like('lastName', $search_data);
+        return $this->db->get('user', 10);
+    }
+
 }
 
 ?>

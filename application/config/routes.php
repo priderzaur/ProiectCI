@@ -55,6 +55,8 @@ $route['messages/conversation/(:num)'] 	= "messages/conversation/$1";
 $route['messages/add/(:num)'] 			= "messages/add/$1";
 $route['messages/(:any)'] 				= "messages/messages";
 
+$route['search/(:any)']					= "search/search";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -32,9 +32,6 @@
 						<li>
 							<span class="glyphicon glyphicon-comment"></span> <a href="<?php echo site_url().'/messages'; ?>">Messages</a>
 						</li>
-						<li>
-							<span class="glyphicon glyphicon-search"></span> <a href="<?php echo site_url().'/search' ?>">Search for people</a>
-						</li>
 
 					</ul>
 

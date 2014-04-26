@@ -84,7 +84,6 @@
 
 								<li><a href="<?php echo site_url().'/profile/'.$user[0]->user_id; ?>"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
 								<li><a href="<?php echo site_url().'/about/'.$user[0]->user_id; ?>"><span class="glyphicon glyphicon-user"></span> About</a></li>
-								<li><a href><span class="glyphicon glyphicon-picture"></span> Photos</a></li>
 
 							</ul>
 
