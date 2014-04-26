@@ -17,7 +17,7 @@
 				            	<div class="row">
 
 				            		<div class="avatar-search">
-				            			<img src="<?php echo $row->avatar; ?>" class="image-post"/>
+				            			<img src="<?php echo base_url().'uploads/'.$row->avatar; ?>" class="image-post"/>
 				            		</div>
 
 				            		
