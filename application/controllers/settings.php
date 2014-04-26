@@ -19,9 +19,12 @@ Class Settings extends CI_Controller{
 
 				if ($this->input->post('confirmPwd') == $user['password']){
 
-					if($this->input->post('newpwd') !='') { $pwd = $this->input->post('newpwd'); }
+					if($this->input->post('newpwd') !='') {
+						$pwd = $this->input->post('newpwd');
+						$this->User->updateUserPwd($user['id'],$pwd);
+					}
 
-					$this->User->updateUser($user['id'],$this->input->post('email'),$pwd);
+					$this->User->updateUser($user['id'],$this->input->post('email'),$pwd,$user['avatar']);
 					redirect(base_url());
 				}
 

@@ -13,7 +13,7 @@
 							<div class="media">
 
 								<div class="pull-left avatar">
-									<img src="<?php echo $user[0]->avatar; ?>"class="img-rounded img-responsive"></img>
+									<img src="<?php echo base_url().'uploads/'.$user[0]->avatar; ?>"class="img-rounded img-responsive"></img>
 								</div>
 
 								<div class="large-info">

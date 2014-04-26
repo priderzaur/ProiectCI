@@ -38,17 +38,19 @@
 |
 */
 
-$route['default_controller'] = "home";
-$route['404_override'] = '';
-$route['delete_update/(:any)'] = "delete_update/delete_update/$1";
-$route['delete_comment/(:any)'] = "delete_comment/delete_comment/$1";
-$route['add_comment/(:any)'] = "add_comment/add_comment/$1";
+$route['default_controller'] 			= "home";
+$route['404_override'] 					= '';
+$route['delete_update/(:any)'] 			= "delete_update/delete_update/$1";
+$route['delete_comment/(:any)']			= "delete_comment/delete_comment/$1";
+$route['add_comment/(:any)'] 			= "add_comment/add_comment/$1";
 
-$route['about/(:any)'] = "about/about/$1";
-$route['follow/(:any)'] = "follow/follow/$1";
-$route['unfollow/(:any)'] = "unfollow/unfollow/$1";
-$route['profile/(:any)'] = "profile/profile/$1";
-$route['update/(:any)'] = "update/update/$1";
+$route['about/(:any)'] 					= "about/about/$1";
+$route['follow/(:any)'] 				= "follow/follow/$1";
+$route['unfollow/(:any)'] 				= "unfollow/unfollow/$1";
+
+$route['profile/avatar']				= "profile/avatar";
+$route['profile/(:any)']				= "profile/profile/$1";
+$route['update/(:any)'] 				= "update/update/$1";
 
 $route['messages/send'] 				= "messages/send";
 $route['messages/conversation/(:num)'] 	= "messages/conversation/$1";
@@ -56,6 +58,7 @@ $route['messages/add/(:num)'] 			= "messages/add/$1";
 $route['messages/(:any)'] 				= "messages/messages";
 
 $route['search/(:any)']					= "search/search";
+$route['set_avatar/(:any)']				= "set_avatar/set_avatar";
 
 
 /* End of file routes.php */

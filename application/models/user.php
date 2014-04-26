@@ -54,14 +54,24 @@ class User extends CI_Model {
 
     }
 
-    function updateUser($id,$email){
+    function updateUser($id,$email,$avatar){
         $data = array(
-            'email' => $email,
-            'password' => md5($pwd)
+            'email'     => $email,
+            'avatar'    => $avatar
         );
 
         $this->db->where('user_id',$id);
         $this->db->update('user',$data);
+    }
+
+    function updateUserPwd($id,$pwd){
+        $data=array(
+            'password'  => $pwd;
+        );
+
+        $this->db->where('user_id',$id);
+        $this->db->update('user',$data);
+
     }
 
 
@@ -144,12 +154,13 @@ class User extends CI_Model {
         if ( $result->num_rows() > 0 ) {
             $user = array();
             $result = $result->result_array();
-            print_r($result);
+
+            $avatar = base_url().'uploads/'.$result[0]['avatar'];
             $user['id']         = $result[0]['user_id'];
             $user['firstName']  = $result[0]['firstName'];
             $user['lastName']   = $result[0]['lastName'];
             $user['email']      = $result[0]['email'];
-            $user['avatar']     = $result[0]['avatar'];
+            $user['avatar']     = $avatar;
             $this->session->set_userdata('user', $user);
             redirect(site_url());
         }

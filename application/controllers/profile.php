@@ -27,6 +27,12 @@ Class Profile extends CI_Controller{
 
 	}
 
+	public function avatar(){
+
+		$this->load->view('avatar.php');
+
+	}
+
 }
 
 ?>
