@@ -34,20 +34,44 @@
 
 							</div>
 
-							<?php if($profil['id'] != $user[0]->user_id){ ?>
+							<?php if($profil['id'] != $user[0]->user_id): ?>
 
-							<div class="text-center">
-								<button type="button" class="btn btn-primary follow">
-									<span class="glyphicon glyphicon-plus"></span> Follow
-								</button>
-							</div>
+								<?php if( empty($follow) ): ?>
 
-							<?php } ?>
+									<div class="text-center">
+										<form method="POST" action="<?php echo base_url() ?>index.php/follow/<?php echo $user[0]->user_id; ?>">
+											<button type="submit" class="btn btn-primary follow">
+												<span class="glyphicon glyphicon-plus"></span> Follow
+											</button>
+										</form>
+									</div>
 
-							<article>
-								<h3>Info</h3>
-								
-							</article>
+							<?php else: ?>
+
+									<div class="text-center">
+										<form method="POST" action="<?php echo base_url() ?>index.php/unfollow/<?php echo $user[0]->user_id; ?>">
+											<button type="submit" class="btn btn-danger follow">
+												<span class="glyphicon glyphicon-plus"></span> Unfollow
+											</button>
+										</form>
+									</div>
+
+							<?php 
+								endif;
+							endif;
+							?>
+
+							<?php if($profil['id'] != $user[0]->user_id): ?>
+
+								<ul class="list-unstyled feed-menu">
+
+									<li>
+										<span class="glyphicon glyphicon-comment"></span> <a href="<?php echo site_url().'/messages/conversation/'.$user[0]->user_id; ?>">Send a message</a>
+									</li>
+
+								</ul>
+
+							<?php endif; ?>
 
 					</div>
 
@@ -116,7 +140,7 @@
 
 											<div class="col-md-1 comment-avatar">
 												<div class="mini-avatar-comment">
-													<img src="<?php echo $comment->avatar; ?>" class="img-responsive">
+													<img src="<?php echo base_url().'uploads/'.$comment->avatar; ?>" class="img-responsive">
 												</div>
 											</div>
 

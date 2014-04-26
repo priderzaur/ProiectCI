@@ -66,7 +66,7 @@ class User extends CI_Model {
 
     function updateUserPwd($id,$pwd){
         $data=array(
-            'password'  => $pwd;
+            'password'  => $pwd,
         );
 
         $this->db->where('user_id',$id);

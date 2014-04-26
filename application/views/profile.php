@@ -65,14 +65,17 @@
 							endif;
 							?>
 
+							<?php if($profil['id'] != $user[0]->user_id): ?>
 
-							<ul class="list-unstyled feed-menu">
+								<ul class="list-unstyled feed-menu">
 
-								<li>
-									<span class="glyphicon glyphicon-comment"></span> <a href="<?php echo site_url().'/messages/conversation/'.$user[0]->user_id; ?>">Send a message</a>
-								</li>
+									<li>
+										<span class="glyphicon glyphicon-comment"></span> <a href="<?php echo site_url().'/messages/conversation/'.$user[0]->user_id; ?>">Send a message</a>
+									</li>
 
-							</ul>
+								</ul>
+
+							<?php endif; ?>
 
 					</div>
 

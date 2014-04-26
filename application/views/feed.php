@@ -32,6 +32,9 @@
 						<li>
 							<span class="glyphicon glyphicon-comment"></span> <a href="<?php echo site_url().'/messages'; ?>">Messages</a>
 						</li>
+						<li>
+							<a href="<?php echo site_url().'/profile/avatar'; ?>">Change Avatar</a>
+						</li>
 
 					</ul>
 
@@ -84,7 +87,7 @@
 
 												<div class="mini-avatar">
 														
-													<img src="<?php echo $user->avatar; ?>" class="img-responsive img-rounded">
+													<img src="<?php echo base_url().'uploads/'.$user->avatar; ?>" class="img-responsive img-rounded">
 
 												</div>
 

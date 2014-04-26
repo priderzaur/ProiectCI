@@ -77,7 +77,7 @@
 												</div>
 
 												<div class="col-md-2">
-													<img src="<?php echo $chat[0]->avatar; ?>" class="image-responsive image-post">
+													<img src="<?php echo base_url().'uploads/'.$chat[0]->avatar; ?>" class="image-responsive image-post">
 												</div>
 											</div>
 

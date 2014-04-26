@@ -18,6 +18,7 @@ Class Update extends CI_Controller{
 			$this->load->model('User');
 			$data['user'] = $this->User->getUserById($updateOwner);
 			$data['infos'] = $this->User->getMoreInfoById($updateOwner);
+			$data['follow'] = $this->User->selectFollower($user['id'],$updateOwner);
 
 
 			$data['comments'] = $this->Updates->getCommentsByPost($update_id);

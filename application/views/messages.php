@@ -25,7 +25,7 @@
 									<div class="row messages">
 
 										<div class="col-md-2">
-											<img src="<?php echo $conversation->avatar; ?>" class="image-responsive image-post">
+											<img src="<?php echo base_url().'uploads/'.$conversation->avatar; ?>" class="image-responsive image-post">
 										</div>
 
 										<div class="col-md-10">

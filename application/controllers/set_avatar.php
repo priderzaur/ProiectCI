@@ -29,7 +29,7 @@ Class Set_avatar extends CI_Controller{
 			else{ echo $this->upload->display_errors(); }	
 		
 			$this->load->model('User');
-			$this->User->updateUser($user['id'],$user['email'],$user['password'],$postImage);
+			$this->User->updateUser($user['id'],$user['email'],$postImage);
 
 			redirect(site_url().'/profile/'.$user['id']);
 
